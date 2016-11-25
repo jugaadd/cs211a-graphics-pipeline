@@ -131,9 +131,10 @@ void mouseMoveHandler( int x, int y ){
   glutPostRedisplay( );
 }
 
-void setUserView( ){
+void setUserView( )
+{
   glLoadIdentity( );
-  /* gluLookAt( 0.0,0.0,distance,0.0,0.0,0.0,0.0,1.0,0.0 ); */
+   //gluLookAt( 0.0,0.0,10,0.0,0.0,0.0,0.0,1.0,0.0 );
 
   glTranslatef( -xdistance, ydistance, -zdistance );
   glRotatef( angle2, 1.0, 0.0, 0.0 );

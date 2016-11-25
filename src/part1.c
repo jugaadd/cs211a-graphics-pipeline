@@ -50,10 +50,10 @@ void display( void ){
   glRotatef(-theta, 0.0f, 1.0f, 0.0f);
 
   glRotatef(theta, 0.0f, 1.0f, 0.0f);
-  glTranslatef(3.0f,0.0f,0.0f);
+  My_translate(5.0f,0.0f,0.0f);
   glScalef(0.75f,0.75f,0.75f);
   drawRevolver();
-  glTranslatef(-3.0f,0.0f,0.0f);
+  My_translate(-5.0f,0.0f,0.0f);
   glRotatef(-theta, 0.0f, 1.0f, 0.0f);
 
   /* Swap the front buffer with the back buffer - assumes double buffering */
@@ -71,10 +71,10 @@ extern "C"
 #endif
 void initDisplay( ){
   /* Perspective projection parameters */
-  pD.fieldOfView = 45.0;
+  pD.fieldOfView = 80.0;
   pD.aspect      = (float)IMAGE_WIDTH/IMAGE_HEIGHT;
-  pD.nearPlane   = 0.1;
-  pD.farPlane    = 50.0;
+  pD.nearPlane   = 0.01;
+  pD.farPlane    = 250.0;
 
   /* setup context */
   glMatrixMode( GL_PROJECTION );
@@ -112,7 +112,7 @@ int main( int argc, char **argv ){
   glutMouseFunc( mouseButtHandler );
   glutMotionFunc( mouseMoveHandler );
   glutPassiveMotionFunc( mouseMoveHandler );
-  glutIdleFunc( NULL );
+  glutIdleFunc( display );
 
   initDisplay( );
 

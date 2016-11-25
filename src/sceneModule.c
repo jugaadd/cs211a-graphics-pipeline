@@ -9,6 +9,7 @@
 static float spinnerColors[6][4] =
 {
   {0.600, 0.827, 0.122, 1.0},
+
   {0.114, 0.373, 0.569, 1.0},
   {0.882, 0.690, 0.129, 1.0},
   {0.600, 0.827, 0.122, 1.0},
@@ -64,6 +65,21 @@ static float cubeVertexes[6][4][4] =
     {-1.0, -1.0, 1.0, 1.0},
     {1.0, -1.0, 1.0, 1.0}}
 };
+
+void My_translate(GLfloat xTranslate, GLfloat yTranslate, GLfloat zTranslate){
+    GLfloat matrix[16];
+
+    matrix[0] = matrix[5] =  matrix[10] = matrix[15] = 1.0;
+    matrix[1] = matrix[2] = matrix[3] = matrix[4] = 0.0;
+    matrix[6] = matrix[7] = matrix[8] = matrix[9] = 0.0;
+    matrix[11] = 0.0;
+    matrix[12] = xTranslate;
+    matrix[13] = yTranslate;
+    matrix[14] = zTranslate;
+
+    glMultMatrixf(matrix);
+
+}
 
 void drawSpinner(){
   int i;

@@ -45,16 +45,16 @@ void display( void ){
   /* Set up where the projection */
   setUserView( );
   /* Draw the scene into the back buffer */
-  glRotatef(theta, 0.0f, 1.0f, 0.0f);
+  My_rotate(theta, 0.0f, 1.0f, 0.0f);
   drawSpinner();
-  glRotatef(-theta, 0.0f, 1.0f, 0.0f);
+  My_rotate(-theta, 0.0f, 1.0f, 0.0f);
 
-  glRotatef(theta, 0.0f, 1.0f, 0.0f);
+  My_rotate(theta, 0.0f, 1.0f, 0.0f);
   My_translate(5.0f,0.0f,0.0f);
   My_scale(0.75f,0.75f,0.75f);
   drawRevolver();
   My_translate(-5.0f,0.0f,0.0f);
-  glRotatef(-theta, 0.0f, 1.0f, 0.0f);
+  My_rotate(-theta, 0.0f, 1.0f, 0.0f);
 
   /* Swap the front buffer with the back buffer - assumes double buffering */
   glutSwapBuffers( );

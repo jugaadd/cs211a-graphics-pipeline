@@ -21,6 +21,7 @@ void drawSpinner();
 void drawRevolver();
 void My_translate(GLfloat xTranslate, GLfloat yTranslate, GLfloat zTranslate);
 void My_scale(GLfloat x_scale, GLfloat y_scale, GLfloat z_scale);
+void My_rotate(GLfloat angle,GLfloat x, GLfloat y, GLfloat z);
 
 #ifdef __cplusplus
 }

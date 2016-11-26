@@ -8,6 +8,7 @@
 //#include <unistd.h>
 
 #include "inputModule.h"
+#include "sceneModule.h"
 
 static int motionMode;
 static int startX;
@@ -136,7 +137,7 @@ void setUserView( )
   glLoadIdentity( );
    //gluLookAt( 0.0,0.0,10,0.0,0.0,0.0,0.0,1.0,0.0 );
 
-  glTranslatef( -xdistance, ydistance, -zdistance );
-  glRotatef( angle2, 1.0, 0.0, 0.0 );
-  glRotatef( angle, 0.0, 1.0, 0.0 );
+  My_translate( -xdistance, ydistance, -zdistance );
+  My_rotate( angle2, 1.0, 0.0, 0.0 );
+  My_rotate( angle, 0.0, 1.0, 0.0 );
 }

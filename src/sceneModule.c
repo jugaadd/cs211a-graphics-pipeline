@@ -95,6 +95,59 @@ void My_scale(GLfloat x_scale, GLfloat y_scale, GLfloat z_scale){
     glMultMatrixf(matrix);
 
 }
+
+
+void My_rotate(GLfloat angle,GLfloat x, GLfloat y, GLfloat z){
+    GLfloat sinAngle, cosAngle;
+   GLfloat mag = sqrtf(x * x + y * y + z * z);
+    GLfloat matrix[16];
+    GLfloat PI = 3.14159;
+   sinAngle = sinf ( angle * PI / 180.0f );
+   cosAngle = cosf ( angle * PI / 180.0f );
+   if ( mag > 0.0f )
+   {
+      GLfloat xx, yy, zz, xy, yz, zx, xs, ys, zs;
+      GLfloat oneMinusCos;
+
+      x /= mag;
+      y /= mag;
+      z /= mag;
+
+      xx = x * x;
+      yy = y * y;
+      zz = z * z;
+      xy = x * y;
+      yz = y * z;
+      zx = z * x;
+      xs = x * sinAngle;
+      ys = y * sinAngle;
+      zs = z * sinAngle;
+      oneMinusCos = 1.0f - cosAngle;
+
+      matrix[0] = (oneMinusCos * xx) + cosAngle;
+      matrix[4] = (oneMinusCos * xy) - zs;
+      matrix[8] = (oneMinusCos * zx) + ys;
+      matrix[12] = 0.0F;
+
+      matrix[1] = (oneMinusCos * xy) + zs;
+      matrix[5] = (oneMinusCos * yy) + cosAngle;
+      matrix[9] = (oneMinusCos * yz) - xs;
+      matrix[13] = 0.0F;
+
+      matrix[2] = (oneMinusCos * zx) - ys;
+      matrix[6] = (oneMinusCos * yz) + xs;
+      matrix[10] = (oneMinusCos * zz) + cosAngle;
+      matrix[14] = 0.0F;
+
+      matrix[3] = 0.0F;
+      matrix[7] = 0.0F;
+      matrix[11] = 0.0F;
+      matrix[15] = 1.0F;
+
+      glMultMatrixf(matrix);
+   }
+}
+
 void drawSpinner(){
   int i;
   for (i = 0; i < 6; ++i) {

@@ -51,7 +51,7 @@ void display( void ){
 
   glRotatef(theta, 0.0f, 1.0f, 0.0f);
   My_translate(5.0f,0.0f,0.0f);
-  glScalef(0.75f,0.75f,0.75f);
+  My_scale(0.75f,0.75f,0.75f);
   drawRevolver();
   My_translate(-5.0f,0.0f,0.0f);
   glRotatef(-theta, 0.0f, 1.0f, 0.0f);

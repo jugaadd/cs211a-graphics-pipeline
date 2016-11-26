@@ -80,7 +80,21 @@ void My_translate(GLfloat xTranslate, GLfloat yTranslate, GLfloat zTranslate){
     glMultMatrixf(matrix);
 
 }
+void My_scale(GLfloat x_scale, GLfloat y_scale, GLfloat z_scale){
+    GLfloat matrix[16];
 
+    matrix[0] = x_scale;
+    matrix[5] = y_scale;
+
+    matrix[10] = z_scale;
+    matrix[15] = 1.0;
+    matrix[1] = matrix[2] = matrix[3] = matrix[4] = 0.0;
+    matrix[6] = matrix[7] = matrix[8] = matrix[9] = 0.0;
+    matrix[11] = matrix[12] = matrix[13] = matrix[14] = 0.0;
+
+    glMultMatrixf(matrix);
+
+}
 void drawSpinner(){
   int i;
   for (i = 0; i < 6; ++i) {

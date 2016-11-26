@@ -20,6 +20,7 @@ extern "C" {
 void drawSpinner();
 void drawRevolver();
 void My_translate(GLfloat xTranslate, GLfloat yTranslate, GLfloat zTranslate);
+void My_scale(GLfloat x_scale, GLfloat y_scale, GLfloat z_scale);
 
 #ifdef __cplusplus
 }

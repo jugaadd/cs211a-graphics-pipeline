@@ -81,8 +81,31 @@ void initDisplay( ){
   glLoadIdentity( );
   gluPerspective( pD.fieldOfView, pD.aspect, pD.nearPlane, pD.farPlane );
 
+  GLfloat light_ambient[] = { 1.0, 0.0, 0.0, 1.0 };
+  GLfloat light_diffuse[] = { 1.0, 0.0, 0.0, 1.0 };
+  GLfloat light_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+  GLfloat light_position[] = {-2.0, -2.0, -2.0, 0.0 };
+
+  //glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
+  glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse); //Defines the light0
+//  glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular); //Defines the light1
+//Change the parameters for the diffuse light to see different colors.
+//Use the l,k keys to change the position of light1
+  glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+
+  GLfloat light2_diffuse[] = { 0.0, 1.0, 0.0, 1.0 };
+  GLfloat light2_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+  GLfloat light2_position[] = {2.0, 2.0, 2.0, 0.0 };
+
+  glLightfv(GL_LIGHT1, GL_DIFFUSE, light2_diffuse);
+//  glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
+  glLightfv(GL_LIGHT1, GL_POSITION, light2_position);
+
   glEnable( GL_DEPTH_TEST );
-  glDisable( GL_CULL_FACE );
+  glEnable( GL_CULL_FACE );
+  glEnable(GL_LIGHTING);
+  glEnable(GL_LIGHT0);
+  glEnable(GL_LIGHT1);
 
   glClearColor( 0.0, 0.0, 0.0, 1.0 );
   glClearIndex( 0 );

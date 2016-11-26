@@ -15,10 +15,15 @@ static int startX;
 static int startY;
 static GLfloat angle = 20;    /* in degrees */
 static GLfloat angle2 = 30;   /* in degrees */
+
+
 static GLfloat xdistance = 0.0;
 static GLfloat ydistance = 0.0;
 static GLfloat zdistance = 5.0;
-
+static GLfloat xposition = -2.0;
+static GLfloat yposition = -2.0;
+static GLfloat zposition = -2.0;
+static GLfloat light_position[] = {-2.0,-2.0,-2.0, 0.0 };
 
 void readKeyboard( unsigned char key, int x, int y ){
   switch( key ){
@@ -29,6 +34,18 @@ void readKeyboard( unsigned char key, int x, int y ){
   case ' ':
 
     break;
+  case 'l': //Here l, k are keys to control the light position
+    xposition = xposition + 2;
+    light_position[0] = xposition;
+    glLightfv(GL_LIGHT1, GL_POSITION, light_position);
+    break;
+
+  case 'k':
+    xposition = xposition - 2;
+    light_position[0] = xposition;
+    glLightfv(GL_LIGHT1, GL_POSITION, light_position);
+    break;
+
   case ',':
 
     break;
@@ -42,6 +59,7 @@ void readKeyboard( unsigned char key, int x, int y ){
     xdistance = 0.0;
     ydistance = 0.0;
     zdistance = 5.0;
+
     break;
   default:
     break;

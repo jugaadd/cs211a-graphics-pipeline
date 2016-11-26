@@ -17,6 +17,16 @@ static float spinnerColors[6][4] =
   {0.882, 0.690, 0.129, 1.0},
 };
 
+
+static float Face_Normals[6][4] =
+{
+  {-1.0, 0.0, 0.0},
+  {1.0, 0.0, 0.0},
+  {0.0, -1.0, 0.0},
+  {0.0, 1.0, 0.0},
+  {0.0, 0.0, -1.0},
+  {0.0, 0.0, 1.0},
+};
 static float revolverColors[6][4] =
 {
   {1.000, 0.667, 0.000, 1.0},
@@ -152,7 +162,8 @@ void drawSpinner(){
   int i;
   for (i = 0; i < 6; ++i) {
     glBegin(GL_POLYGON);
-    glColor3fv(&spinnerColors[i][0]);
+    glNormal3fv(&Face_Normals[i][0]);
+    //glColor3fv(&spinnerColors[i][0]);
     glVertex4fv(&cubeVertexes[i][0][0]);
     glVertex4fv(&cubeVertexes[i][1][0]);
     glVertex4fv(&cubeVertexes[i][2][0]);
@@ -165,6 +176,7 @@ void drawRevolver(){
   int i;
   for (i = 0; i < 6; ++i) {
     glBegin(GL_POLYGON);
+    glNormal3fv(&Face_Normals[i][0]);
     glColor3fv(&revolverColors[i][0]);
     glVertex4fv(&cubeVertexes[i][0][0]);
     glVertex4fv(&cubeVertexes[i][1][0]);
